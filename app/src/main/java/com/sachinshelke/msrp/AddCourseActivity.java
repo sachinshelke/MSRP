@@ -30,8 +30,7 @@ public class AddCourseActivity extends AppCompatActivity {
     }
 
     public void onCancel(View view) {
-
-        finish();
+        onBackPressed();
     }
 
     public void onClearForm(View view) {
@@ -61,8 +60,17 @@ public class AddCourseActivity extends AppCompatActivity {
             return;
         }
 
-
+        activityResult = RESULT_OK;
         onClearForm(view);
 
     }
+
+    @Override
+    public void onBackPressed() {
+        setResult(activityResult);
+        super.onBackPressed();
+    }
+
+    int activityResult = RESULT_CANCELED;
+
 }

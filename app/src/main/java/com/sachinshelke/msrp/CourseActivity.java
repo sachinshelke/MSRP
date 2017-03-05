@@ -17,6 +17,8 @@ import java.util.List;
 
 public class CourseActivity extends AppCompatActivity {
 
+    public static final int REQUEST_CODE_ADD_COURSE = 123;
+
 
     Button btnAddCourse;
     RecyclerView rvCourseList;
@@ -60,7 +62,21 @@ public class CourseActivity extends AppCompatActivity {
 
     public void addCourse(View view) {
         Intent intent = new Intent(this, AddCourseActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, REQUEST_CODE_ADD_COURSE);
 
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == REQUEST_CODE_ADD_COURSE) {
+            if (resultCode == RESULT_OK) {
+
+                adapter.setCourseModelList(courseWrapper.getCourse());
+            } else if (resultCode == RESULT_CANCELED) {
+                // can perfrom logical operation if required
+            }
+        }
     }
 }
