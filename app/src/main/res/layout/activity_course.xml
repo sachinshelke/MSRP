@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/activity_course"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.sachinshelke.msrp.CourseActivity">
+
+    <Button
+        android:id="@+id/btn_AddCouse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Course"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_CourseList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        tools:listitem="@layout/course_detail_item"/>
+</LinearLayout>
